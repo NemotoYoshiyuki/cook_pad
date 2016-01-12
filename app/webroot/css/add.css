@@ -7,6 +7,23 @@ label {
 fieldset {
     border:solid 1px black;
 }
+fieldset.org {
+    margin-top:50px;
+    border:solid 0px black;
+}
 legend {
     color:red;
+}
+p.item_title {
+    margin-top:15px;
+    font-size: 110%;
+    font-weight:bolder;
+    display:inline;
+}
+div.canvas {
+    background-color:grey;
+}
+input#RecipeAmount {
+    width:80px;
+    height:10px;
 }

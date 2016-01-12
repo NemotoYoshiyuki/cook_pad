@@ -14,19 +14,51 @@
 			print_r($units);
 		?>
 	</fieldset>
-    <p>データ配列から独自に作成</p>
+
+	<fieldset class="org">
+		<legend><?php echo __('レシピの追加(データ配列から独自に作成)'); ?></legend>
+        <div class="canvas">
+	        <p class="item_title">料理名:</p>
+	        <select name="data[Recipe][food_id]" id="RecipeFoodId" required="required">
+		    <?php
+    		    foreach($foods as $key => $val){
+				    echo '<option value="' . $key .'">' . $val . '</option>';
+			    }
+		    ?>
+	        </select><br>
+	        <p class="item_title">素材名:</p>
+	        <select name="data[Recipe][material_id]" id="RecipeMaterialId" required="required">
+		    <?php
+		        foreach($materials as $key => $val){
+			        echo '<option value="' . $key .'">' . $val . '</option>';
+		        }
+			?>
+	        </select>
+	        <p class="item_title">数量:</p>
+	            <input name="data[Recipe][amount]" type="number" id="RecipeAmount" required="required"/>
+	        <p class="item_title">単位:</p>
+	        <select name="data[Recipe][unit_id]" id="RecipeUnitId" required="required">
+		    <?php
+ 		        foreach($units as $key => $val){
+			        echo '<option value="' . $key .'">' . $val . '</option>';
+		        }
+		    ?>
+	        </select>
+        </div>
+	</fieldset>
 	<?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('作成'); ?></h3>
 	<ul>
-
-		<li><?php echo $this->Html->link(__('List Recipes'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Foods'), array('controller' => 'foods', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Food'), array('controller' => 'foods', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Materials'), array('controller' => 'materials', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Material'), array('controller' => 'materials', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Units'), array('controller' => 'units', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Unit'), array('controller' => 'units', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('料理名'), array('controller' => 'foods', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('素材名'), array('controller' => 'materials', 'action' => 'add')); ?> </li>
+	</ul>
+	<h3><?php echo __('閲覧'); ?></h3>
+	<ul>
+　	    <li><?php echo $this->Html->link(__('レシピList'), array('action' => 'index')); ?></li>
+	    <li><?php echo $this->Html->link(__('料理List'), array('controller' => 'foods', 'action' => 'index')); ?> </li>
+	    <li><?php echo $this->Html->link(__('素材List'), array('controller' => 'materials', 'action' => 'index')); ?> </li>
+	    <li><?php echo $this->Html->link(__('単位List'), array('controller' => 'units', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
