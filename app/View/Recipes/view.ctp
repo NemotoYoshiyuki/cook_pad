@@ -1,42 +1,20 @@
+
 <div class="recipes view">
-<h2><?php echo __('Recipe'); ?></h2>
+	<h2><?php echo __('Cook Pad'); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($recipe['Recipe']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Food'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($recipe['Food']['food_name'], array('controller' => 'foods', 'action' => 'view', $recipe['Food']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Material'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($recipe['Material']['material_name'], array('controller' => 'materials', 'action' => 'view', $recipe['Material']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Amount'); ?></dt>
-		<dd>
-			<?php echo h($recipe['Recipe']['amount']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Unit'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($recipe['Unit']['unit_name'], array('controller' => 'units', 'action' => 'view', $recipe['Unit']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($recipe['Recipe']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modifed'); ?></dt>
-		<dd>
-			<?php echo h($recipe['Recipe']['modifed']); ?>
-			&nbsp;
-		</dd>
+		<?php echo ($recipe['Food']['food_name']); ?>
 	</dl>
+	<img src=<? echo ($recipe['Food']['food_photo']);?> width="50" height="50" alt="料理画像">
+	<table border="1">
+		<tr bgcolor="#f4a460"><th>材料</th></tr>
+		<tr><td><?php echo ($recipe['Material']['material_name']); ?></td><td><?php echo ($recipe['Recipe']['amount']),($recipe['Unit']['unit_name']); ?></td></tr>
+		<tr><td><?php echo ($recipe['Material']['material_name']); ?></td><td><?php echo ($recipe['Recipe']['amount']),($recipe['Unit']['unit_name']); ?></td></tr>
+		<tr><td>醤油</td><td>大さじ2/1</td></tr>
+		<tr><td>塩</td><td>少々</td></tr>
+	</table>
+	作り方
+	<textarea name="comment" cols="50" rows="3">自由に作成すること</textarea>
+
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
