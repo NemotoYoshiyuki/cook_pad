@@ -1,0 +1,9 @@
+■HTMLページに表示される項目名の変更方法
+CakePHPによりデフォルトで作成される
+　echo $this->Form->input('food_id');
+では、Webページにて、【Food】と項目名が表示されるが、
+以下のように変更することによって、項目名を変更可能
+
+　echo $this->Form->input('food_id', array('label' => '料理名'));
+
+※この構文では、Foodが【料理名】の項目名に変わる。
