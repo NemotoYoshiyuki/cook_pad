@@ -2,16 +2,20 @@
 <div class="recipes form">
 <?php echo $this->Form->create('Recipe'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Recipe'); ?></legend>
-	<?php
-		echo $this->Form->input('food_id', array('label' => '料理名'));
-		echo $this->Form->input('material_id', array('label' => '材料名'));
-		echo $this->Form->input('amount', array('label' => '数量'));
-		echo $this->Form->input('unit_id', array('label' => '単位'));
-		//echo $this->Form->input('modifed');
-	?>
+		<legend><?php echo __('レシピの追加(ヘルパーをCSSで改修)'); ?></legend>
+ 	    <?php
+		    echo $this->Form->input('food_id', array('label' => '料理名'));
+		    echo $this->Form->input('material_id', array('label' => '材料名'));
+		    echo $this->Form->input('amount', array('label' => '数量'));
+		    echo $this->Form->input('unit_id', array('label' => '単位'));
+		    //echo $this->Form->input('modifed');
+	    ?>
+		<?php
+			print_r($units);
+		?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+    <p>データ配列から独自に作成</p>
+	<?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
