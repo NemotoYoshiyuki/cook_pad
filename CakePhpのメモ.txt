@@ -7,3 +7,29 @@ CakePHPによりデフォルトで作成される
 　echo $this->Form->input('food_id', array('label' => '料理名'));
 
 ※この構文では、Foodが【料理名】の項目名に変わる。
+
+■フォームのデザイン（CSS）変更について
+①http://localhost/cook_pad/recipes
+などにアクセスし、Webページ右クリックメニューより、ソースの表示から
+Phpフレームワークが作成したHTMLソースの中身を見ると、
+
+②<link rel="stylesheet" type="text/css" href="/cook_pad/css/cake.generic.css"/>
+
+という記載があります。
+これは、
+③C:\xampp\htdocs\cook_pad\app\webroot\css\cake.generic.css
+のCSSファイルをデフォルトで読み込むという、CakePHPが自動で作成したものです。
+
+④C:\xampp\htdocs\cook_pad\app\View\Recipes\view.ctp
+ファイル内容を書き換えても、自動で本CSSファイルが読み込まれる為、思った通りのデザインが
+作成できない場合がありますが、以下の方法で対応可能です。
+　　★対応例
+　　　1）④のファイル中身の先頭に、
+　　　　<?php echo $this->Html->css('add'); ?>
+　　　　を記載する（addには任意のファイル名を入力）
+　　　　※これは、add.cssファイルを読み込めという命令文です。
+　　　2）③のcssフォルダの中に、「add.css」ファイルを作成します。
+　　　3）CSSファイルの中身を編集します。
+
+　　　※CSSの内容は後から読み込まれた内容が有効になります。②のcss内容で上書きしたいCSS内容がある場合などは
+　　　　上記手順でCSSファイルを別途作成し、スタイルシートを書き換えること。

@@ -1,13 +1,14 @@
+<?php echo $this->Html->css('add'); ?>
 <div class="recipes form">
 <?php echo $this->Form->create('Recipe'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Recipe'); ?></legend>
 	<?php
-		echo $this->Form->input('food_id');
-		echo $this->Form->input('material_id');
-		echo $this->Form->input('amount');
-		echo $this->Form->input('unit_id');
-		echo $this->Form->input('modifed');
+		echo $this->Form->input('food_id', array('label' => '料理名'));
+		echo $this->Form->input('material_id', array('label' => '材料名'));
+		echo $this->Form->input('amount', array('label' => '数量'));
+		echo $this->Form->input('unit_id', array('label' => '単位'));
+		//echo $this->Form->input('modifed');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
