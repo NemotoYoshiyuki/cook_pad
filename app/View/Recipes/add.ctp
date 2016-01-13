@@ -1,20 +1,6 @@
 <?php echo $this->Html->css('add'); ?>
 <div class="recipes form">
 <?php echo $this->Form->create('Recipe'); ?>
-	<fieldset>
-		<legend><?php echo __('レシピの追加(ヘルパーをCSSで改修)'); ?></legend>
- 	    <?php
-		    echo $this->Form->input('food_id', array('label' => '料理名'));
-		    echo $this->Form->input('material_id', array('label' => '材料名'));
-		    echo $this->Form->input('amount', array('label' => '数量'));
-		    echo $this->Form->input('unit_id', array('label' => '単位'));
-		    //echo $this->Form->input('modifed');
-	    ?>
-		<?php
-			print_r($units);
-		?>
-	</fieldset>
-
 	<fieldset class="org">
 		<legend><?php echo __('レシピの追加(データ配列から独自に作成)'); ?></legend>
         <div class="canvas">
@@ -46,7 +32,22 @@
 	        </select>
         </div>
 	</fieldset>
+
+	<input type="button" class="add_bottom" value="素材を追加" />
 	<?php echo $this->Form->end(__('Submit')); ?>
+
+
+
+
+	<h1>-------jQueryでtableに行を追加するサンプル-------</h1>
+	<table>
+		<thead>
+		<tr><th id="material_name1">素材名</th><th id="amount1">数量</th><th id="unit1">単位</th></tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+
+
 </div>
 <div class="actions">
 	<h3><?php echo __('作成'); ?></h3>
@@ -62,3 +63,37 @@
 	    <li><?php echo $this->Html->link(__('単位List'), array('controller' => 'units', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
+
+
+
+
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>
+	var material_name;
+	var amount;
+	var unit;
+	jQuery(function(){
+		jQuery('.add_bottom').click(function(){
+			getData();
+			jQuery('tbody').append(data);
+			jQuery('.slide').slideDown("fast");
+		});
+		jQuery('.clear').click(function(){
+			if (jQuery('tbody tr').length) {
+				jQuery('tbody tr').remove();
+			}
+		});
+	});
+	function getData() {
+		material_name = jQuery('#RecipeMaterialId').val();
+		amount = jQuery('#RecipeAmount').val();
+		unit = jQuery('#RecipeUnitId').val();
+		data = '<tr><td><div class="slide">' + material_name + '</div></td><td><div class="slide price">' + amount + '</div></td><td><div class="slide number">' + unit + '</div></td></tr>';
+	}
+</script>
