@@ -1,0 +1,27 @@
+p {
+    font-size: 110%;
+    font-weight: 900;
+}
+img {
+    width: 500px;
+    height: 300px;
+}
+table {
+    /*âÊëúÇ∆ìØÇ∂â°ïù*/
+    width: 500px;
+    border-collapse: collapse;
+}
+th {
+    background-color: #FFA07A;
+}
+td{
+    background-color: #FFDAB9;
+}
+.How_to{
+    width: 500px;
+    display:block;
+    background-color: #FFA07A;
+}
+textarea{
+    width: 500px;
+}
