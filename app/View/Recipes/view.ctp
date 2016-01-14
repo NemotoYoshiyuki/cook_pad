@@ -14,6 +14,24 @@
 	</table>
 	<p class="How_to">作り方</p>
 	<textarea name="comment" cols="50" rows="3">自由に作成すること</textarea>
+	<?php
+	print_r($recipe);
+	?>
+
+	<table>
+		<?php foreach ($recipe as $recipe): ?>
+		<tr>
+			<td>
+				<?php echo ($recipe['Material']['material_name']); ?>
+			</td>
+			<td>
+				<?php echo ($recipe['Recipe']['amount']); ?>
+				<?php echo ($recipe['Unit']['unit_name']); ?>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</table>
+
 </div>
 <div class="actions">
 	<h3><?php echo __('作成'); ?></h3>
