@@ -97,4 +97,17 @@ class Recipe extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public function addAll($data = null){
+		if($data == null) {
+			return false;
+		}
+		print("1:");
+		var_dump($data);
+		$result = $this->saveAll($data);
+		print("2:");
+		var_dump($result);
+		return true;
+	}
+
 }
