@@ -32,12 +32,16 @@ class RecipesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	/*public function view($id = null) {
 		if (!$this->Recipe->exists($id)) {
 			throw new NotFoundException(__('Invalid recipe'));
 		}
 		$options = array('conditions' => array('Recipe.' . $this->Recipe->primaryKey => $id));
 		$this->set('recipe', $this->Recipe->find('first', $options));
+	}
+	*/
+	public function view() {
+		$this->set('recipe', $this->Recipe->find('all'));
 	}
 
 /**
