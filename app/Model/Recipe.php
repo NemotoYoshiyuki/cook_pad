@@ -104,7 +104,7 @@ class Recipe extends AppModel {
 		}
 		print("1:");
 		var_dump($data);
-		$result = $this->saveAll($data);
+		$result = $this->saveAll($data['Recipe']);
 		print("2:");
 		var_dump($result);
 		return true;
