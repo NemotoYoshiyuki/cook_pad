@@ -40,8 +40,16 @@ class RecipesController extends AppController {
 		$this->set('recipe', $this->Recipe->find('first', $options));
 	}
 	*/
-	public function view() {
-		$this->set('recipe', $this->Recipe->find('all'));
+	public function view($id = null)
+	{
+		if (!$this->Recipe->exists($id)) {
+			throw new NotFoundException(__('Invalid recipe'));
+		}
+		$results = $this->Recipe->find('all');
+		$this->set('results',$results);
+
+		$options = array('conditions' => array('Recipe.' . $this->Recipe->primaryKey => $id));
+		$this->set('recipe', $this->Recipe->find('first', $options));
 	}
 
 /**
