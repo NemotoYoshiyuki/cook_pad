@@ -72,6 +72,35 @@ class RecipesController extends AppController {
 		$units = $this->Recipe->Unit->find('list');
 		$this->set(compact('foods', 'materials', 'units'));
 	}
+	public function add2() {
+		if ($this->request->is('post')) {
+			$this->Recipe->create();
+			if ($this->Recipe->save($this->request->data)) {
+				$this->Session->setFlash(__('The recipe has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The recipe could not be saved. Please, try again.'));
+			}
+		}
+		$foods = $this->Recipe->Food->find('list');
+		$materials = $this->Recipe->Material->find('list');
+		$units = $this->Recipe->Unit->find('list');
+		$this->set(compact('foods', 'materials', 'units'));
+	}
+	public function add_all() {
+		if ($this->request->is('post')) {
+			if ($this->Recipe->addAll($this->request->data)) {
+				$this->Session->setFlash(__('The recipe has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The recipe could not be saved. Please, try again.'));
+			}
+		}
+		$foods = $this->Recipe->Food->find('list');
+		$materials = $this->Recipe->Material->find('list');
+		$units = $this->Recipe->Unit->find('list');
+		$this->set(compact('foods', 'materials', 'units'));
+	}
 
 /**
  * edit method
