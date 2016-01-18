@@ -2,11 +2,11 @@ p {
     font-size: 110%;
     font-weight: 900;
 }
-img {
+.img {
     width: 500px;
     height: 300px;
 }
-table {
+.table {
     /*‰æ‘œ‚Æ“¯‚¶‰¡•*/
     width: 500px;
     border-collapse: collapse;
